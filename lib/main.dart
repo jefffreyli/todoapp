@@ -31,7 +31,7 @@ class _TodoListState extends State<TodoList> {
     return Scaffold(
       appBar: AppBar(
           title: const Text('Tasks'), backgroundColor: Color(0xff93BBF6)),
-      body:  ListView(children: getItems()),
+      body: ListView(children: getItems()),
       backgroundColor: Color.fromARGB(255, 236, 239, 249),
       // add items to the to-do list
       floatingActionButton: FloatingActionButton(
@@ -88,6 +88,7 @@ class _TodoListState extends State<TodoList> {
                         tasks.removeAt(index);
                         descriptions.removeAt(index);
                         deadlines.removeAt(index);
+                        isChecked.removeAt(index);
                       });
                     },
                   ))
