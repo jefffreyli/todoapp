@@ -31,7 +31,7 @@ class _TodoListState extends State<TodoList> {
     return Scaffold(
       appBar: AppBar(
           title: const Text('Tasks'), backgroundColor: Color(0xff93BBF6)),
-      body:  ListView(children: getItems()),
+      body: ListView(children: getItems()),
       backgroundColor: Color.fromARGB(255, 236, 239, 249),
       // add items to the to-do list
       floatingActionButton: FloatingActionButton(
@@ -72,9 +72,6 @@ class _TodoListState extends State<TodoList> {
                     onChanged: (bool? value) {
                       setState(() {
                         isChecked[index] = value!;
-                        //   tasks.removeAt(index);
-                        //   descriptions.removeAt(index);
-                        //   deadlines.removeAt(index);
                       });
                     },
                     value: isChecked[index],
@@ -100,10 +97,11 @@ class _TodoListState extends State<TodoList> {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
+          return Container(
+            child: AlertDialog(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10))),
-            title: const Text('Add a task to your list'),
+            title: const Text('                         Add a task to your list                         '),
             content: Column(children: [
               TextField(
                 controller: _textFieldController1,
@@ -136,7 +134,7 @@ class _TodoListState extends State<TodoList> {
                 },
               )
             ],
-          );
+          ));
         });
   }
 
@@ -210,7 +208,7 @@ class _descriptionPageState extends State<descriptionPage> {
                       _textFieldController1.text,
                       _textFieldController2.text,
                       _textFieldController3.text,
-                      widget.index);
+                      0);
                 },
               ),
               // Cancel button
